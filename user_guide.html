@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<!-- Basic Page Needs
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+<meta charset="utf-8"/>
+<title>User Guide — Examples 0.1.0 documentation</title>
+<meta content="Domain-specific narrative examples using multiple open-source Python visualization tools." name="description"/>
+<meta content="PyViz Developers" name="author"/>
+<!-- Mobile Specific Metas
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<!-- FONT
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+<script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js"></script>
+<script>
+    WebFont.load({
+      google: {
+        families: ['Source Sans Pro']
+      }
+    });
+  </script>
+<!-- CSS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+<link href="_static/css/main.css" rel="stylesheet"/>
+<link href="_static/nbsite.css" rel="stylesheet"/>
+<link href="_static/site.css" rel="stylesheet"/>
+<!-- Scripts
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script async="" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML" type="text/javascript">
+</script>
+<script src="_static/js/main.js"></script>
+<script src="_static/nbsite.js"></script>
+<script src="_static/require.js"></script>
+<!-- Favicon
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+<link href="_static/favicon.ico" rel="icon" type="image/png"/>
+<!-- Canonical
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+<link href="/user_guide.html" rel="canonical">
+</link></head>
+<body class="">
+<header class="navigation">
+<div class="wrapper">
+<a class="logo" href="index.html">
+<img alt="Logo" src="_static/logo.png"/>
+</a>
+<a class="navigation-menu logo-text" href="index.html">Examples</a>
+<a class="navigation-menu-button" href="javascript:void(0)" id="js-mobile-menu">Menu</a>
+<nav>
+<ul class="navigation-menu show" id="js-navigation-menu">
+<li class="nav-link doc-head"><a href="https://gitter.im/pyviz/pyviz">Gitter</a></li>
+<li class="nav-link doc-head"><a href="https://twitter.com/pyviz_org">Twitter</a></li>
+<li class="nav-link doc-head"><a href="https://github.com/pyviz-topics/examples">Github</a></li>
+<li class="nav-link">
+<div style="display:inline-block;vertical-align: middle;">
+<div class="search-bar">
+<form action="search.html" method="get" role="search">
+<input name="q" placeholder="Search" type="search"/>
+<button type="submit">
+<img alt="Search Icon" src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/search-icon-black.png"/>
+</button>
+</form>
+</div>
+</div>
+</li>
+</ul>
+</nav>
+</div>
+</header>
+<div class="second-nav">
+<nav>
+<ul class="navigation-menu show">
+<li class="nav-link doc-head"><a href="index.html">Home</a></li>
+<li class="nav-link doc-head"><a href="#">User Guide</a></li>
+<li class="nav-link doc-head"><a href="make_project.html">Making a New Project</a></li>
+<li class="nav-link doc-head"><a href="maintenance.html">Maintenance</a></li>
+</ul>
+</nav>
+</div>
+<!-- MAIN BODY OF DOCS –––––––––––––––––– -->
+<div class="docs section">
+<div id="hacketyhackhack"> <!-- style="width:20%;margin-right: 100px;"> --> <!--style="display: none;"> style="display:none;"> -->
+<div class="toc" style="width:15%; margin-right:20px;">
+</div>
+</div>
+<div class="content"> <!-- style="max-width:80%;margin-left:auto;margin-right: auto;">-->
+<section id="user-guide">
+<h1>User Guide<a class="headerlink" href="#user-guide" title="Permalink to this headline">¶</a></h1>
+<p>This website consists of isolated fully described projects, runnable locally
+and also deployed as public examples using Anaconda Enterprise (AE).</p>
+<section id="download-a-project">
+<h2>Download a Project<a class="headerlink" href="#download-a-project" title="Permalink to this headline">¶</a></h2>
+<p>All of the examples on this website have a link to download the project.
+Once you have downloaded a project you can run it locally or on AE.</p>
+</section>
+<section id="run-locally">
+<h2>Run Locally<a class="headerlink" href="#run-locally" title="Permalink to this headline">¶</a></h2>
+<p>To run an example locally, first install anaconda-project.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda install anaconda-project<span class="o">=</span><span class="m">0</span>.8.3
+</pre></div>
+</div>
+<p>Once you unpack the project locally and visit that directory, you can see that each project directory has a text file <cite>anaconda-project.yml</cite> that defines an environment along with predefined commands that can be run in that environment. To run the default command defined in that project, do:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>anaconda-project run
+</pre></div>
+</div>
+<p>Running this command will install the dependencies for the particular project, then execute whatever the first command is. E.g. for a Bokeh or Panel dashboard, the default command could start a Bokeh server (e.g. it will end with a statement like: <cite>Bokeh app running at: http://localhost:5006/attractors_panel</cite> ). You can then open the given link to see the running dashboard.</p>
+<p>If the default command is a dashboard or app but you want to see or edit the individual steps involved, most projects also provide a predefined “notebook” command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>anaconda-project run notebook
+</pre></div>
+</div>
+<p>Other commands might be defined in the .yml file as well, e.g. multiple notebooks, multiple dashboards, or other tasks.  You can also run any command you like in the provided environment, even if it’s not defined in the .yml already. E.g. to launch a Jupyter notebook server for the entire directory, you can ask <cite>anaconda-project</cite> to run <cite>jupyter notebook</cite>, <cite>jupyter lab</cite>, or any other program:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>anaconda-project run jupyter notebook
+</pre></div>
+</div>
+<p>If you don’t want to use anaconda-project at all, you can create a regular
+conda environment using:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda env create --file anaconda-project.yml
+</pre></div>
+</div>
+<p>Activate the environment (be sure to replace env-name with the real name
+of the environment you created):</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda activate &lt;env-name&gt;
+</pre></div>
+</div>
+<p>Then start a jupyter notebook as usual:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>jupyter notebook
+</pre></div>
+</div>
+<p><strong>NOTE:</strong> If the notebook depends on data files, you will need to
+download them explicitly if you don’t use anaconda-project, by
+extracting the URLs defined in anaconda-project.yml and saving the
+file(s) to this directory.</p>
+</section>
+<section id="run-on-ae">
+<h2>Run on AE<a class="headerlink" href="#run-on-ae" title="Permalink to this headline">¶</a></h2>
+<p>In addition to running examples locally you can upload and share them
+using Anaconda Enterprise, which is the platform we use for publishing
+our public deployments. If you’ve already installed anaconda-project,
+then for an example named “bears” just do:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">bears</span>
+<span class="n">anaconda</span><span class="o">-</span><span class="n">project</span> <span class="n">archive</span> <span class="n">bears</span><span class="o">.</span><span class="n">zip</span>
+</pre></div>
+</div>
+<p>Then in the AE interface select “Create”, “Upload Project” and navigate
+to the zip file. Once your project has been created, you can deploy it.</p>
+</section>
+</section>
+</div>
+</div>
+<!-- END MAIN BODY OF DOCS ––––––––––––– -->
+<!-- Google Analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-61554933-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<!-- MathJax Config -->
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+});
+</script>
+<!-- End Document
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+</body>
+</html>
